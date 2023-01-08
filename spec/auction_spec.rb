@@ -147,5 +147,22 @@ RSpec.describe Auction do
     end
   end
 
+  describe '#most_expensive_first' do 
+    it 'purchases the most expensive item first' do 
+      auction.add_item(item1)
+      auction.add_item(item2)
+      auction.add_item(item3)
+      auction.add_item(item4)
+      auction.add_item(item5)
+
+      item1.add_bid(attendee2, 20) 
+      item3.add_bid(attendee2, 15) 
+
+      auction.most_expensive_first(attendee2)
+
+      expect(attendee2.budget).to eq(55)
+    end
+  end
+
   
 end
