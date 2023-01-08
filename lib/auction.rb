@@ -60,4 +60,16 @@ class Auction
   def format_date(date)
     date.strftime('%d/%m/%Y')
   end
+
+  def can_afford?(bidder, item)
+    found_item = items_with_bids.find_all do |item_bid_on| 
+      item_bid_on == item
+    end.pop
+
+    selected = found_item.bids.select do |attendee, amount| 
+      attendee == bidder
+    end
+    
+    bidder.budget > selected.values[0]
+  end
 end
