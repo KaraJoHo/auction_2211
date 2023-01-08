@@ -40,4 +40,23 @@ RSpec.describe Item do
       expect(item1.current_high_bid).to eq(22)
     end
   end
+
+  describe '#close_bidding' do 
+    it 'will stop adding bids after closing bidding' do  
+      item1.add_bid(attendee2, 20) 
+      item1.add_bid(attendee1, 22) 
+
+      expected = {attendee2 => 20, attendee1 => 22}
+
+      
+      item1.close_bidding 
+
+      expect(item1.bids).to eq(expected)
+
+      item1.add_bid(attendee3, 23)
+
+      expect(item1.bids).to eq(expected)
+
+    end
+  end
 end
