@@ -20,4 +20,16 @@ class Auction
       item.bids.empty?
     end
   end
+
+  def items_with_bids #helper method, array of items with bids 
+    @items.find_all do |item| 
+      item.bids.empty? == false
+    end
+  end
+
+  def potential_revenue 
+    items_with_bids.sum do |item| 
+      item.current_high_bid
+    end
+  end
 end

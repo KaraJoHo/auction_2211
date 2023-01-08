@@ -72,7 +72,8 @@ RSpec.describe Auction do
       item1.add_bid(attendee1, 22) 
       item4.add_bid(attendee3, 50)
       item3.add_bid(attendee2, 15) 
-      
+
+      expect(auction.items_with_bids).to match_array([item1, item4, item3])
       expect(auction.potential_revenue).to eq(87)
     end
   end
