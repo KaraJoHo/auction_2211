@@ -25,6 +25,9 @@ RSpec.describe Auction do
 
   describe '#item_names' do 
     it 'is a list of the item names' do 
+      auction.add_item(item1)
+      auction.add_item(item2)
+      
       expect(auction.item_names).to eq(["Chalkware Piggy Bank", "Bamboo Picture Frame"])
     end
   end
