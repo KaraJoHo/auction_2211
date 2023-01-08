@@ -1,8 +1,9 @@
 class Auction 
-  attr_reader :items 
+  attr_reader :items, :date
 
   def initialize
     @items = []
+    @date = format_date
   end
 
   def add_item(item)
@@ -41,7 +42,7 @@ class Auction
 
   def bidder_info 
     bidder_info_hash = Hash.new({})
-    
+
     bidders.each do |bidder|
       bidder_info_hash[bidder] = {:budget => bidder.budget, :items => items_bid_on(bidder)}
     end
@@ -52,5 +53,9 @@ class Auction
     items_with_bids.find_all do |item|
        item.bids.keys.include?(bidder)
     end
+  end
+
+  def format_date 
+    
   end
 end
