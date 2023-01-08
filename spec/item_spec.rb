@@ -48,15 +48,16 @@ RSpec.describe Item do
 
       expected = {attendee2 => 20, attendee1 => 22}
 
-      
+      expect(item1.closed).to eq(false)
+
       item1.close_bidding 
 
+      expect(item1.closed).to eq(true)
       expect(item1.bids).to eq(expected)
 
       item1.add_bid(attendee3, 23)
 
       expect(item1.bids).to eq(expected)
-
     end
   end
 end
