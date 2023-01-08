@@ -38,4 +38,14 @@ class Auction
       item.bids.keys
     end.uniq
   end
+
+  def bidder_info 
+
+  end
+
+  def items_bid_on(bidder)
+    items_with_bids.find_all do |item|
+       item.bids.keys.include?(bidder)
+    end
+  end
 end
