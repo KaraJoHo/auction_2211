@@ -32,4 +32,10 @@ class Auction
       item.current_high_bid
     end
   end
+
+  def bidders #array of bidders who placed a bid
+    items_with_bids.flat_map do |item| 
+      item.bids.keys
+    end.uniq
+  end
 end

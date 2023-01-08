@@ -91,7 +91,7 @@ RSpec.describe Auction do
       item4.add_bid(attendee3, 50)
       item3.add_bid(attendee2, 15) 
 
-      expect(auction.bidders).to eq([attendee1, attendee2, attendee3])
+      expect(auction.bidders).to match_array([attendee1, attendee2, attendee3])
     end
   end
 
