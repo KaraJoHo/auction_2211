@@ -5,7 +5,7 @@ class Attendee
   def initialize(attributes)
     @name = attributes[:name]
     @budget = attributes[:budget].delete('$').to_i
-    @bidden_on = []
+    @bidded_on = []
   end
 
   def spend_money(amount) 
