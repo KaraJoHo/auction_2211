@@ -41,6 +41,7 @@ class Auction
 
   def bidder_info 
     bidder_info_hash = Hash.new({})
+    
     bidders.each do |bidder|
       bidder_info_hash[bidder] = {:budget => bidder.budget, :items => items_bid_on(bidder)}
     end

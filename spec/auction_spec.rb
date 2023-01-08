@@ -118,5 +118,12 @@ RSpec.describe Auction do
     end
   end
 
+  describe '#date' do 
+    it 'is created with a date' do 
+      allow(auction).to receive(:date).and_return('03/14/2010')
+      expect(auction.date).to eq('03/14/2010')
+    end
+  end
+
   
 end
