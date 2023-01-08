@@ -77,10 +77,18 @@ class Auction
     items_bid_on(bidder)
 
     most_expensive = bidder.bidded_on.max_by {|item| item.bids.values.max}
-    
+
     if can_afford?(bidder, most_expensive)
       bidder.spend_money(most_expensive.bids.values[0])
       bidder.bidded_on.delete(most_expensive)
+    # else
+    #   next_highest_bidder
     end  
   end
+
+  # def next_highest_bidder 
+  #   items_with_bids.find do |item| 
+  #    
+  #   end
+  # end
 end

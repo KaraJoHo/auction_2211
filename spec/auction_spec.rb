@@ -163,6 +163,23 @@ RSpec.describe Auction do
       expect(attendee2.budget).to eq(55)
       expect(attendee2.bidded_on).to eq([item3])
     end
+
+    # describe '#next_highest_bidder' do 
+    #   it 'is the next highest bidder for an item' do 
+    #   auction.add_item(item1)
+    #   auction.add_item(item2)
+    #   auction.add_item(item3)
+    #   auction.add_item(item4)
+    #   auction.add_item(item5)
+
+    #   item1.add_bid(attendee2, 50) 
+    #   item3.add_bid(attendee2, 35) 
+    #   item3.add_bid(attendee1, 15)
+
+    #   expect(auction.next_highest_bidder).to eq(attendee1)
+
+    #   end
+    # end
   end
 
   
