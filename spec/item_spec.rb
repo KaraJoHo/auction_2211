@@ -31,4 +31,13 @@ RSpec.describe Item do
       expect(item1.bids).to eq(expected)
     end
   end
+
+  describe '#current_high_bid' do 
+    it 'is the highest bid on the item' do 
+      item1.add_bid(attendee2, 20) 
+      item1.add_bid(attendee1, 22) 
+
+      expect(item1.current_high_bid).to eq(22)
+    end
+  end
 end
