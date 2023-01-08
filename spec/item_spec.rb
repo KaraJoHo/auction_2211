@@ -2,7 +2,7 @@ require './lib/item'
 
 RSpec.describe Item do 
   let(:item1) {Item.new('Chalkware Piggy Bank')}
-  let(:item2) { Item.new('Bamboo Picture Frame')}
+  let(:item2) {Item.new('Bamboo Picture Frame')}
 
   describe '#initialize' do 
     it 'exists and has a name' do 
