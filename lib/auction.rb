@@ -40,10 +40,14 @@ class Auction
   end
 
   def bidder_info 
-
+    bidder_info_hash = Hash.new({})
+    bidders.each do |bidder|
+      bidder_info_hash[bidder] = {:budget => bidder.budget, :items => items_bid_on(bidder)}
+    end
+    bidder_info_hash
   end
 
-  def items_bid_on(bidder)
+  def items_bid_on(bidder) #array of items the bidder has bid on
     items_with_bids.find_all do |item|
        item.bids.keys.include?(bidder)
     end
