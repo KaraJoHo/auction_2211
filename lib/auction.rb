@@ -88,7 +88,7 @@ class Auction
 
   # def next_highest_bidder 
   #   items_with_bids.find do |item| 
-  #    
+  #    #find the next highest bidder for an item
   #   end
   # end
 end
