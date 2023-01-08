@@ -1,6 +1,7 @@
 require './lib/item'
 require './lib/auction'
 require './lib/attendee'
+require 'date'
 
 RSpec.describe Auction do 
   let(:auction) {Auction.new}
@@ -121,7 +122,7 @@ RSpec.describe Auction do
   describe '#date' do 
     it 'is created with a date' do 
       
-      #allow(auction).to receive(:format_date).and_return('03/14/2010')
+      allow(auction).to receive(:format_date).and_return('03/14/2010')
       allow(auction).to receive(:date).and_return('03/14/2010')
 
       expect(auction.format_date(Date.today(2010-03-14))).to eq('03/14/2010')
