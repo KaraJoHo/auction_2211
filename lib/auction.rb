@@ -52,7 +52,7 @@ class Auction
   end
 
   def items_bid_on(bidder) #array of items the bidder has bid on
-    items_with_bids.find_all do |item|
+    bidder.bidded_on = items_with_bids.find_all do |item|
        item.bids.keys.include?(bidder)
     end
   end
@@ -71,5 +71,16 @@ class Auction
     end
     
     bidder.budget > selected.values[0]
+  end
+
+  def most_expensive_first(bidder) 
+    items_bid_on(bidder)
+
+    most_expensive = bidder.bidded_on.max_by {|item| item.bids.values.max}
+    
+    if can_afford?(bidder, most_expensive)
+      bidder.spend_money(most_expensive.bids.values[0])
+      bidder.bidded_on.delete(most_expensive)
+    end  
   end
 end

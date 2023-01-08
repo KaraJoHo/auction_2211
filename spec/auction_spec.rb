@@ -161,6 +161,7 @@ RSpec.describe Auction do
       auction.most_expensive_first(attendee2)
 
       expect(attendee2.budget).to eq(55)
+      expect(attendee2.bidded_on).to eq([item3])
     end
   end
 
